@@ -13,10 +13,10 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="22dp"
         android:paddingBottom="25dp"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:paddingTop="25dp"
-        android:textSize="22sp" />
+        android:textSize="23sp" />
 
     <TextView
         android:id="@+id/dateView"
