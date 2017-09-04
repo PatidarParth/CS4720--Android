@@ -6,9 +6,21 @@ package edu.virginia.cs.cs4720.uvabucketlist;
 
 public class BucketItem {
     private String description;
+    private String date;
 
-    public BucketItem(String description) {
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDate() {
+
+        return date;
+    }
+
+    public BucketItem(String description, String date) {
         this.description = description;
+        this.date = date;
+
     }
 
     public String getDescription() {

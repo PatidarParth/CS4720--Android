@@ -8,8 +8,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 
 public class BucketListActivity extends AppCompatActivity {
 
@@ -17,12 +15,26 @@ public class BucketListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bucket_list);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        BucketItem[] data = new BucketItem[] {
-                new BucketItem("Streak the Lawn"),
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.addItem);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String popup = "Add an item to your BucketList";
+                Snackbar.make(view, popup, Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
+        BucketItem[] data = new BucketItem[]{
+                new BucketItem("Finish MileStone 1", "9-04-2017"),
+                new BucketItem("Streak the Lawn", "09-05-2017"),
+                new BucketItem("Eat Roots", "09-08-2017"),
+                new BucketItem("Get an A in CS4720", "12-15-2017")
         };
-
-
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         BucketListAdapter adapter = new BucketListAdapter(data);
@@ -31,28 +43,5 @@ public class BucketListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-        };
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_bucket_list, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }
