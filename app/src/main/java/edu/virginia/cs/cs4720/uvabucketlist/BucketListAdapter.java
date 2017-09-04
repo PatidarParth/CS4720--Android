@@ -18,7 +18,7 @@ public class BucketListAdapter extends
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View listItem= layoutInflater.inflate(R.layout.content_bucket_list, parent, false);
+        View listItem= layoutInflater.inflate(R.layout.list_item, parent, false);
         ViewHolder viewHolder = new ViewHolder(listItem);
         return viewHolder;
     }
